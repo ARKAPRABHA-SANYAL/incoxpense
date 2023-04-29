@@ -153,3 +153,4 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'mailcodera7@gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_PASSWORD = 'exyamgxlwptfnbtr'
+
