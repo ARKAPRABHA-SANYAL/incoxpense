@@ -1,0 +1,10 @@
+from django.urls import path
+from . import views
+
+from django.views.decorators.csrf import csrf_exempt
+
+urlpatterns = [
+    path('', views.savings_table, name="savings"),
+    #path('search-savings', csrf_exempt(views.search_savings),
+     #    name="search_savings"),    
+]   
