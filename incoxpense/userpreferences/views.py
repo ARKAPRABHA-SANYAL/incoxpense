@@ -4,7 +4,7 @@ from django.conf import settings
 from .models import UserPreference
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-import mysql
+
 @login_required
 # Create your views here.
 def index(request):

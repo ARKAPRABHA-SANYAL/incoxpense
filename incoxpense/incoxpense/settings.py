@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
+
 """
 
 from pathlib import Path
@@ -43,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'expense',
     'userpreferences',
-    'income'
+    'income',
+    'savings'
 ]
 
 MIDDLEWARE = [
@@ -140,8 +142,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Configure Django App for Heroku.
-import django_heroku
-django_heroku.settings(locals())
+#import django_heroku
+#django_heroku.settings(locals())
 
 MESSAGE_TAGS={
     messages.ERROR : 'danger'

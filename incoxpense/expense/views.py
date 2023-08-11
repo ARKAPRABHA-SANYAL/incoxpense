@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from userpreferences.models import UserPreference
 import datetime
 
+from django.db.models import Func,Sum
 def search_expenses(request):
     if request.method == 'POST':
         search_str=json.loads(request.body).get('searchText')
@@ -22,7 +23,7 @@ def search_expenses(request):
 @login_required(login_url='/authentication/login')
 def index(request):
     categories = Category.objects.all()
-    expense = Expense.objects.filter(owner=request.user)
+    expense = Expense.objects.filter(owner=request.user).order_by('date')
     paginator = Paginator(expense, 5)
     page_number = request.GET.get('page')
     page_obj = Paginator.get_page(paginator, page_number)
@@ -30,6 +31,7 @@ def index(request):
         currency = UserPreference.objects.get(user = request.user).currency
     else:
         currency = 'INR - Indian Rupee'
+    
     context = {
         'expense': expense,
         'page_obj': page_obj,

@@ -3,18 +3,24 @@
   <div class="position-sticky pt-3 sidebar-sticky">
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url 'expense' %}">
-          <span data-feather="home" class="align-text-bottom"></span>
-          DASHBOARD<span class="sr-only"></span>
+        <a class="nav-link active" style="color: CornflowerBlue" href="{% url 'expense' %}">
+          <span data-feather="home"></span>
+          DASHBOARD 
+          <span class="sr-only"></span>
         </a>
       </li>
-      <li class="nav-item bg-light">
-        <a class="nav-link" href="{% url 'expense' %}">
+      <li class="nav-item ">
+        <a class="nav-link" style="color: blue" href="{% url 'expense' %}">
           EXPENSES
         </a>
       </li>
-      <li class="nav-item bg-light">
-        <a class="nav-link" href="{% url 'income' %}">
+      <li class="nav-item ">
+        <a class="nav-link" style="color: blue" href="{% url 'savings' %}">
+          SAVINGS
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" style="color: blue" href="{% url 'income' %}">
           INCOME
         </a>
       </li>
@@ -26,14 +32,20 @@
         </a>
       </h6>
       <ul class="nav flex-column mb-2">
-        <li class="nav-item bg-light">
-          <a class="nav-link" href="{% url 'expensestats' %}">
+        <li class="nav-item">
+          <a class="nav-link" style="color: blue" href="{% url 'expensestats' %}">
             EXPENSES SUMMARY
           </a>
         </li>
-        <li class="nav-item bg-light">
-            
-          <a class="nav-link" href="{% url 'incomestats' %}">
+
+        <li class="nav-item">
+          <a class="nav-link" style="color: blue" href="{% url 'expensestats' %}">
+            SAVINGS SUMMARY
+          </a>
+        </li>
+        
+        <li class="nav-item">   
+          <a class="nav-link" style="color: blue" href="{% url 'incomestats' %}">
             INCOME SUMMARY
           </a>
         </li>
@@ -46,8 +58,8 @@
       </a>
     </h6>
     <ul class="nav flex-column mb-2">
-      <li class="nav-item bg-light">
-        <a class="nav-link" href="{% url 'preferences' %}">
+      <li class="nav-item ">
+        <a class="nav-link" style="color: blue" href="{% url 'preferences' %}">
           <span data-feather="file-text" class="align-text-bottom"></span>
           GENERAL 
         </a>

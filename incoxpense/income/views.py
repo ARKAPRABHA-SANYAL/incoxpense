@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Source, Income
+from .models import  Source, Income
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
@@ -25,7 +25,7 @@ def search_income(request):
 @login_required(login_url='/authentication/login')
 def index(request):
     categories = Source.objects.all()
-    income = Income.objects.filter(owner=request.user)
+    income = Income.objects.filter(owner=request.user).order_by('date')
     paginator = Paginator(income, 5)
     page_number = request.GET.get('page')
     page_obj = Paginator.get_page(paginator, page_number)
@@ -53,14 +53,14 @@ def add_income(request):
 
         if not amount:
             messages.error(request, 'Amount is required')
-            return render(request, 'income/add_income.html', context)
+            return render(request, 'income/add-income.html', context)
         description = request.POST['description']
         date = request.POST['income_date']
         source = request.POST['source']
 
         if not description:
             messages.error(request, 'description is required')
-            return render(request, 'income/add_income.html', context)
+            return render(request, 'income/add-income.html', context)
 
         Income.objects.create(owner=request.user, amount=amount, date=date,
                                   source=source, description=description)
@@ -85,14 +85,14 @@ def income_edit(request, id):
 
         if not amount:
             messages.error(request, 'Amount is required')
-            return render(request, 'income/edit_income.html', context)
+            return render(request, 'income/edit-income.html', context)
         description = request.POST['description']
         date = request.POST['income_date']
         source = request.POST['source']
 
         if not description:
             messages.error(request, 'description is required')
-            return render(request, 'income/edit_income.html', context)
+            return render(request, 'income/edit-income.html', context)
         income.amount = amount
         income. date = date
         income.source = source
